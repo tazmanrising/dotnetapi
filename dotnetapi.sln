@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetapi", "dotnetapi\dotnetapi.csproj", "{18A942C5-35E1-4889-B2E2-A350CD5CA12A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetapi.Data", "..\dotnetapi.Data\dotnetapi.Data.csproj", "{3150CF68-4623-4AFF-9B86-1B813F557D4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18A942C5-35E1-4889-B2E2-A350CD5CA12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A942C5-35E1-4889-B2E2-A350CD5CA12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A942C5-35E1-4889-B2E2-A350CD5CA12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A942C5-35E1-4889-B2E2-A350CD5CA12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3150CF68-4623-4AFF-9B86-1B813F557D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3150CF68-4623-4AFF-9B86-1B813F557D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3150CF68-4623-4AFF-9B86-1B813F557D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3150CF68-4623-4AFF-9B86-1B813F557D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

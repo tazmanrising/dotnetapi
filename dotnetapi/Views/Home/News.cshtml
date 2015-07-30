@@ -1,0 +1,80 @@
+﻿<div class="container" id="tips">
+
+    <div class="grid" style="margin-bottom: 0">
+        <div class="col-1-4">
+        </div>
+        <div style="text-align: center" class="col-1-2">
+            <label class="text-blue text-center">Sort By:</label>
+            <select style="width:30%" ng-init="order='created'" class="input" ng-model="order">
+                <option value="created">Date Created</option>
+                <option value="createdBy">Created By</option>
+                <option value="getCategory()">Category</option>
+            </select>
+            <button data-tooltip="Reverse the sorting order."
+                    class="btn-blue" ng-click="reverse=!reverse">
+                Reverse
+            </button>
+        </div>
+        <div class="col-1-4 text-right">
+            <button onclick="createEmptyTip()" style="vertical-align: bottom" class="btn-blue">Add</button>
+        </div>
+    </div>
+
+    <div class="col-1-1" ng-if="!!error">
+        <div class="panel">
+            <span class="text-red">Error:</span> {{ error }}
+        </div>
+    </div>
+
+    <div update="resultsUpdated" paginate="page in tips" order="order" reverse="reverse" url="true">
+
+        <div style="margin-bottom: 20px">
+            @*<div paginate-controller></div>*@
+            <button class="btn-blue" onclick="first()"></button>
+        </div>
+
+        <div ng-repeat="tip in page" class="tip"
+             id="tip-{{ tip.id }}" async-anchor async-anchor-delay="500">
+            <div class="grid">
+                <div class="col-1-2">
+                    <h3>
+                        <span class="text-red" ng-if="tip.isNew()"><b>New:</b></span>
+                        {{ tip.title }}
+                        <div>Category: {{ tip.getCategory() }}</div>
+                    </h3>
+                </div>
+
+                <div class="col-1-2 text-right">
+                    <span>Posted by</span>
+                    <span class="text-blue">{{ tip.createdBy }}</span>
+                    <span>on {{ tip.created | date:'shortDate' }}</span>
+                    <span>{{ tip.created | date:'H:mm' }}</span>
+                </div>
+
+                <div class="col-1-1">
+                    <pre>{{ tip.body }}</pre>
+                </div>
+                <div class="col-3-4">
+                    <ul ng-if="tip.attachments.length > 0" class="attachment-list">
+                        <li ng-repeat="attachment in tip.attachments">
+                            <a href="{{ attachment.getDownloadLink() }}">{{ attachment.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-1-4 text-right" ng-if="tip.createdBy == user.ntid">
+                    <a href="#/tips/edit/{{ tip.id }}?paginatePage={{ params.paginatePage }}" class="btn-yellow">Edit</a>
+                    <!--<a href="#/tips/delete/{{ tip.id }}" class="btn-red">Delete</a>0-->
+                    <button ng-ask="deleteTip(tip)" title="Delete"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="margin-top: 20px">
+            <div paginate-controller></div>
+        </div>
+
+    </div>
+
+</div>
